@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="watch.css">
+	<title>Document</title>
+</head>
+<body>
+	 <div class="watch">
+	 	<div class="hour">
+	 		<div class="hh" id="hh"></div>
+	 	</div>
+        <div class="minute">
+        	<div class="mm" id="mm"></div>
+        </div>
+        <div class="second">
+        	<div class="ss" id="ss"></div>
+        </div>
+
+        <div id="digitalClock">
+        	<div id="hour"></div>
+        	<div id="minute"></div>
+        	<div id="second"></div>
+        	<div id="ampm"></div>
+        </div>
+	 </div>
+
+	 <script>
+	 	const hr=document.querySelector("#hh");
+	 	const mi=document.querySelector("#mm");
+	 	const sc=document.querySelector("#ss");
+
+	 	setInterval(()=>{
+	 	let day= new Date();
+	 	let hh= day.getHours()*30 ;
+	 	let mm= day.getMinutes() *6;
+	 	let ss= day.getSeconds() *6;
+
+
+	 	hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+	 	mi.style.transform = `rotateZ(${mm}deg)`;
+	 	sc.style.transform = `rotateZ(${ss}deg)`;
+
+	let hour=document.querySelector("#hour");
+	let minute=document.querySelector("#minute");
+    let second=document.querySelector("#second");
+	let ampm=document.querySelector("#ampm");
+
+      let h= new Date().getHours();
+      let m= new Date().getMinutes();
+      let s= new Date().getSeconds();
+      let am="AM";
+
+      hour.innerHTML = h+":";
+      minute.innerHTML = m+":";
+      second.innerHTML = s+"&nbsp";
+      ampm.innerHTML= am
+
+
+	 	})
+
+	 </script>
+</body>
+</html>
